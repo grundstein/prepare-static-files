@@ -115,6 +115,10 @@ update dependencies
 
 - update dependencies
 
-##### v0.0.13 - unreleased
+##### v0.0.13
+
+- update dependencies
+
+##### v0.0.14 - unreleased
 
 ...
