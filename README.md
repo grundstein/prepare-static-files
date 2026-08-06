@@ -119,6 +119,11 @@ update dependencies
 
 - update dependencies
 
-##### v0.0.14 - unreleased
+##### v0.0.14
+
+- move files from mjs to js
+- update dependencies
+
+##### v0.0.15 - unreleased
 
 ...
