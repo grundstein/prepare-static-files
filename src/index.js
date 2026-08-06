@@ -2,14 +2,14 @@ import log from '@magic/log'
 import fs from '@magic/fs'
 import is from '@magic/types'
 
-import { isImage, isLossLess, isVideoSource, isCompressible, isPly } from './lib.mjs'
+import { isImage, isLossLess, isVideoSource, isCompressible, isPly } from './lib.js'
 
-import { optimizeImage } from '../src/optimizeImage.mjs'
-import { compress } from '../src/compress.mjs'
-import { audio } from './audio.mjs'
-import { video } from './video.mjs'
-import { etags } from './etags.mjs'
-import { ply } from './ply.mjs'
+import { optimizeImage } from './optimizeImage.js'
+import { compress } from '../src/compress.js'
+import { audio } from './audio.js'
+import { video } from './video.js'
+import { etags } from './etags.js'
+import { ply } from './ply.js'
 
 const handleFiles = args => {
   const { noOptimizeImages, noAudio, noCompress, noPly, noVideo } = args

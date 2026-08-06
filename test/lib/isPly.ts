@@ -1,4 +1,4 @@
-import { isPly } from '../../src/lib.mjs'
+import { isPly } from '../../src/lib.js'
 
 const matches = ['ply']
 

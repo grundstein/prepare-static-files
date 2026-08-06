@@ -1,4 +1,4 @@
-import { isZip } from '../../src/lib.mjs'
+import { isZip } from '../../src/lib.js'
 
 const matches = ['gz']
 

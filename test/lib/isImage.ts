@@ -1,4 +1,4 @@
-import { isImage } from '../../src/lib.mjs'
+import { isImage } from '../../src/lib.js'
 
 const matches = ['png', 'jpg', 'jpeg', 'webp']
 

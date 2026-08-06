@@ -2,8 +2,7 @@ import path from 'path'
 
 import { fs, is, tryCatch } from '@magic/test'
 
-import { etags } from '../src/etags.mjs'
-
+import { etags } from '../src/etags.js'
 const expectedEtags =
   'fileOne.txt,xPk3X5g0tOfwpSjMZcBVcCv18ko=\nfileThree.txt,GB891E5L+2oHD+4RrXgLAD8DYNs=\nfileTwo.txt,HFsMPu38JTn85SXybU+Ek1y3fTw='
 

@@ -1,4 +1,4 @@
-import { isVideo } from '../../src/lib.mjs'
+import { isVideo } from '../../src/lib.js'
 
 const matches = ['mp4', 'webm']
 

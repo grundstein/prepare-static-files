@@ -1,4 +1,4 @@
-import { getExtension } from '../../src/lib.mjs'
+import { getExtension } from '../../src/lib.js'
 
 export default [
   { fn: getExtension('file.js'), expect: 'js', info: 'file with one dot can be split' },

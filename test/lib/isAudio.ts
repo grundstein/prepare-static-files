@@ -1,4 +1,4 @@
-import { isAudio } from '../../src/lib.mjs'
+import { isAudio } from '../../src/lib.js'
 
 const matches = ['mp3', 'm4a', 'ogg']
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import cli from '@magic/cli'
-import { run } from './index.mjs'
+import { run } from './index.js'
 
 const cliArgs = {
   options: [

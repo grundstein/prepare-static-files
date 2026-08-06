@@ -4,18 +4,18 @@
   "description": "optimize and compress static files for hosting.",
   "type": "module",
   "bin": {
-    "prepare-static-files": "src/bin.mjs"
+    "prepare-static-files": "src/bin.js"
   },
-  "main": "src/index.mjs",
+  "main": "src/index.js",
   "files": [
     "src"
   ],
   "scripts": {
     "dev": "grundstein-server --dir ./docs --port 8002 --cors '*'",
-    "optimize": "src/bin.mjs --dir docs --no-compress",
-    "compress": "src/bin.mjs --dir docs --no-optimize-images",
-    "build": "src/bin.mjs --dir docs",
-    "rebuild": "npm run cleanup && src/bin.mjs --dir docs",
+    "optimize": "src/bin.js --dir docs --no-compress",
+    "compress": "src/bin.js --dir docs --no-optimize-images",
+    "build": "src/bin.js --dir docs",
+    "rebuild": "npm run cleanup && src/bin.js --dir docs",
     "format": "f -w",
     "cleanup": "rm -f docs/*.webp docs/*.webm docs/*.gz docs/*.ogg docs/sample1.mp4 docs/*.mp3",
     "test": "t"

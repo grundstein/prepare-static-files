@@ -1,4 +1,4 @@
-import { isLossLess } from '../../src/lib.mjs'
+import { isLossLess } from '../../src/lib.js'
 
 const matches = ['flac', 'alac', 'wav']
 
