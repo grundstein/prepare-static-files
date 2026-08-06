@@ -122,6 +122,7 @@ update dependencies
 ##### v0.0.14
 
 - move files from mjs to js
+- add more tests
 - update dependencies
 
 ##### v0.0.15 - unreleased
