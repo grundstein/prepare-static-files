@@ -125,6 +125,10 @@ update dependencies
 - add more tests
 - update dependencies
 
-##### v0.0.15 - unreleased
+##### v0.0.15
+
+- update dependencies
+
+##### v0.0.16 - unreleased
 
 ...
