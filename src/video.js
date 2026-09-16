@@ -34,6 +34,8 @@ const convertFile = ({ file, force, silent, codec, ext }) =>
     ffmpeg(file)
       .addOutput(name)
       .videoCodec(codec)
+      .withInputOptions(['-fflags +genpts'])
+      .withOutputOptions(['-flags +bitexact', '-map_metadata -1', '-map_chapters -1'])
       .on('end', () => resolve(true))
       .run()
   })
