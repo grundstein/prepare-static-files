@@ -129,6 +129,10 @@ update dependencies
 
 - update dependencies
 
-##### v0.0.16 - unreleased
+##### v0.0.16
+
+- update @magic/test
+
+##### v0.0.17 - unreleased
 
 ...
