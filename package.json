@@ -44,7 +44,7 @@
   "devDependencies": {
     "@grundstein/gss": "0.0.14",
     "@magic/format": "0.0.75",
-    "@magic/test": "0.3.31"
+    "@magic/test": "0.3.32"
   },
   "contributors": [
     {
