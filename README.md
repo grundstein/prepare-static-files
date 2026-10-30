@@ -135,6 +135,7 @@ update dependencies
 
 ##### v0.0.17
 
+- optimizeImages: only overwrite webp files if sharp produces a smaller binary
 - audio and video conversion is reproducible.
 - update dependencies
 
