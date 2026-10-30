@@ -7,24 +7,31 @@ import ffmpeg from 'fluent-ffmpeg'
 
 // ffmpeg -i input.mp3 -c:a aac -b:a 192k output.m4a
 
-const convertFile = ({ file, codec, ext }) =>
-  new Promise(async res => {
-    const origExt = path.extname(file)
-    const name = path.join(process.cwd(), file.replace(origExt, ext))
+const convertFile = async ({ file, codec, ext }) => {
+  const origExt = path.extname(file)
+  const newFile = file.replace(origExt, ext)
+  const name = path.join(process.cwd(), newFile)
 
-    const exists = await fs.exists(name)
+  if (newFile === file) {
+    // same extension: output would overwrite the input file, nothing to do
+    return false
+  }
 
-    if (exists) {
-      res(false)
-    }
+  const exists = await fs.exists(name)
+  if (exists) {
+    return false
+  }
 
+  return new Promise((res, rej) => {
     ffmpeg(file)
       .addOutput(name)
       //.audioBitrate(192)
       .audioCodec(codec)
       .on('end', () => res(true))
+      .on('error', rej)
       .run()
   })
+}
 
 export const audio = async ({ file, silent }) => {
   const status = await Promise.all([
