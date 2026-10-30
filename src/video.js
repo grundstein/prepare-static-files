@@ -13,8 +13,15 @@ import ffmpeg from 'fluent-ffmpeg'
 
 // ffmpeg -i input -c:v libx264 -preset slow -crf 22 -x264-params keyint=123:min-keyint=20 -c:a copy output.mkv
 
+// output is encoded to be byte-for-byte reproducible:
+// - -fflags +bitexact (format level) keeps the muxer deterministic, e.g. it
+//   stops the webm/mkv muxer from writing a random TrackUID per run. the
+//   codec-level -flags +bitexact alone does not cover the muxer.
+// - -threads 1 pins the encoder thread count. ffmpeg defaults to one thread
+//   per core, and libx264/libvpx produce different bytes for different thread
+//   counts, so auto threading would vary output with the machine's core count.
 const convertFile = ({ file, force, silent, codec, ext }) =>
-  new Promise(async resolve => {
+  new Promise(async (resolve, reject) => {
     const origExt = path.extname(file)
     const newFileName = file.replace(origExt, ext)
     const name = path.join(process.cwd(), newFileName)
@@ -35,8 +42,21 @@ const convertFile = ({ file, force, silent, codec, ext }) =>
       .addOutput(name)
       .videoCodec(codec)
       .withInputOptions(['-fflags +genpts'])
-      .withOutputOptions(['-flags +bitexact', '-map_metadata -1', '-map_chapters -1'])
+      .withOutputOptions([
+        '-fflags +bitexact',
+        '-flags +bitexact',
+        '-map_metadata -1',
+        '-map_chapters -1',
+        '-threads 1',
+      ])
       .on('end', () => resolve(true))
+      .on('error', async err => {
+        // ffmpeg may have created a partial or empty file before failing
+        try {
+          await fs.rmrf(name)
+        } catch (e) {}
+        reject(err)
+      })
       .run()
   })
 
