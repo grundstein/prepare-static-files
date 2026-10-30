@@ -133,6 +133,11 @@ update dependencies
 
 - update @magic/test
 
-##### v0.0.17 - unreleased
+##### v0.0.17
+
+- audio and video conversion is reproducible.
+- update dependencies
+
+##### v0.0.18 - unreleased
 
 ...
