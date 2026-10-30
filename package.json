@@ -35,16 +35,16 @@
     "@magic/fs": "0.0.40",
     "@magic/log": "0.1.23",
     "@magic/mime-types": "0.0.24",
-    "@magic/types": "0.1.39",
+    "@magic/types": "0.1.40",
     "fluent-ffmpeg": "2.1.3",
     "node-zopfli-es": "2.0.6",
     "plyo": "0.0.1",
-    "sharp": "0.35.4"
+    "sharp": "0.35.5"
   },
   "devDependencies": {
     "@grundstein/gss": "0.0.14",
     "@magic/format": "0.0.75",
-    "@magic/test": "0.3.32"
+    "@magic/test": "0.3.50"
   },
   "contributors": [
     {
