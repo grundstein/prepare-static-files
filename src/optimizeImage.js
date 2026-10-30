@@ -19,6 +19,24 @@ export const optimizeImage = async ({ file, force, silent, noWebp }) => {
 
   const originalBuffer = await sharpen.toBuffer()
 
+  if (file.endsWith('.webp')) {
+    const webpBuffer = await sharpen.webp().toBuffer()
+
+    if (webpBuffer.length >= originalBuffer.length) {
+      if (!silent) {
+        log.info('Compressed webp bigger than original, ignoring:', file)
+      }
+      return
+    }
+
+    await fs.writeFile(file, webpBuffer)
+
+    if (!silent) {
+      log.info(file, 'oldSize:', originalBuffer.length, 'newSize:', webpBuffer.length)
+    }
+    return
+  }
+
   if (is.undefined(noWebp)) {
     const extension = path.extname(file)
     const webpName = file.replace(extension, '.webp')
